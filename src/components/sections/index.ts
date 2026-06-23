@@ -1,0 +1,13 @@
+export { AboutPreviewSection } from "./AboutPreviewSection";
+export { AudienceSplitSection } from "./AudienceSplitSection";
+export { BeforeAfterSection } from "./BeforeAfterSection";
+export { BrandsSection } from "./BrandsSection";
+export { ContactSection } from "./ContactSection";
+export { FinalCtaSection } from "./FinalCtaSection";
+export { HeroSection } from "./HeroSection";
+export { PaintTransitionPlaceholderSection } from "./PaintTransitionPlaceholderSection";
+export { ProcessSection } from "./ProcessSection";
+export { ServicesOverviewSection } from "./ServicesOverviewSection";
+export { TestimonialsSection } from "./TestimonialsSection";
+export { TrustIntroStrip } from "./TrustIntroStrip";
+export { WhyChooseSection } from "./WhyChooseSection";
