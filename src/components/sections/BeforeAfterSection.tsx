@@ -1,15 +1,29 @@
-import Image from "next/image";
-import {
-  BeforeAfterScrollPrep,
-  GsapMaskReveal,
-} from "@/components/animation/GsapScrollEffects";
+import { GsapMaskReveal } from "@/components/animation/GsapScrollEffects";
 import { MaskReveal, Reveal } from "@/components/animation/Reveal";
+import { BeforeAfterSlider } from "@/components/ui/BeforeAfterSlider";
 import { transformations } from "@/data/site";
 
 export function BeforeAfterSection() {
   return (
-    <section id="projects" className="ppm-section bg-white">
-      <div className="ppm-container">
+    <section
+      id="projects"
+      className="ppm-section relative overflow-hidden bg-ppm-light"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 bg-scroll opacity-100 contrast-[1.08] brightness-[0.98] md:bg-fixed"
+        style={{
+          backgroundImage: "url('/assets/paint-effects/plaster-strip04.png')",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-white/5 via-transparent to-white/10"
+      />
+
+      <div className="ppm-container relative z-10">
         <div className="ppm-split">
           <Reveal>
             <p className="ppm-label text-ppm-blue">Before / After</p>
@@ -31,59 +45,16 @@ export function BeforeAfterSection() {
 
         <GsapMaskReveal className="mt-20 grid gap-8 lg:grid-cols-2">
           {transformations.map((item) => (
-            <article
+            <BeforeAfterSlider
+              afterAlt={item.afterAlt}
+              afterImage={item.afterImage}
+              beforeAlt={item.beforeAlt}
+              beforeImage={item.beforeImage}
+              category={item.service}
+              description={item.copy}
               key={item.title}
-              className="overflow-hidden border border-ppm-grey/60 bg-white"
-              data-gsap-reveal-item
-            >
-              <BeforeAfterScrollPrep
-                className="relative aspect-[4/3] overflow-hidden bg-ppm-light"
-              >
-                <Image
-                  src={item.beforeImage}
-                  alt={item.beforeAlt}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-                <div
-                  className="absolute inset-y-0 left-0 overflow-hidden border-r border-white"
-                  aria-hidden="true"
-                  data-before-after-reveal
-                  style={{ width: "var(--before-after-progress, 50%)" }}
-                >
-                  <div className="relative h-full w-[200%]">
-                    <Image
-                      src={item.afterImage}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 50vw, 100vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div
-                  className="absolute inset-y-0 w-px bg-white"
-                  aria-hidden="true"
-                  data-before-after-handle
-                  style={{ left: "var(--before-after-progress, 50%)" }}
-                />
-                <div className="absolute left-5 top-5 rounded-sm bg-ppm-navy px-3 py-2">
-                  <p className="ppm-label text-white">After</p>
-                </div>
-                <div className="absolute right-5 top-5 rounded-sm bg-white px-3 py-2">
-                  <p className="ppm-label text-ppm-navy">Before</p>
-                </div>
-              </BeforeAfterScrollPrep>
-
-              <div className="ppm-card">
-                <p className="ppm-label text-ppm-blue">{item.service}</p>
-                <h3 className="ppm-subheading mt-7 text-ppm-navy">
-                  {item.title}
-                </h3>
-                <p className="ppm-small mt-5 text-ppm-navy/70">{item.copy}</p>
-              </div>
-            </article>
+              title={item.title}
+            />
           ))}
         </GsapMaskReveal>
       </div>
