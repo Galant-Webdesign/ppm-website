@@ -9,6 +9,7 @@ import {
   FinalCtaSection,
   HeroSection,
   PaintTransitionPlaceholderSection,
+  PlasterTransition,
   ProcessSection,
   ServicesOverviewSection,
   TestimonialsSection,
@@ -24,6 +25,7 @@ export default function Home() {
         <HeroSection />
         <TrustIntroStrip />
         <AboutPreviewSection />
+        <PlasterTransition />
         <ServicesOverviewSection />
         <PaintTransitionPlaceholderSection />
         <BeforeAfterSection />

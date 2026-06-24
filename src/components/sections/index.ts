@@ -6,6 +6,7 @@ export { ContactSection } from "./ContactSection";
 export { FinalCtaSection } from "./FinalCtaSection";
 export { HeroSection } from "./HeroSection";
 export { PaintTransitionPlaceholderSection } from "./PaintTransitionPlaceholderSection";
+export { PlasterTransition } from "./PlasterTransition";
 export { ProcessSection } from "./ProcessSection";
 export { ServicesOverviewSection } from "./ServicesOverviewSection";
 export { TestimonialsSection } from "./TestimonialsSection";
